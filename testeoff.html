@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Escolar</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema Escolar</h1>
+    </header>
+
+    <div class="container" id="loginContainer">
+        <h2>Login</h2>
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" placeholder="Digite seu usuário">
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" placeholder="Digite sua senha">
+
+        <button onclick="login()">Entrar</button>
+    </div>
+
+    <div class="container" id="mainContainer" style="display: none;">
+        <h2>Bem-vindo, Professor!</h2>
+        <!-- Conteúdo do painel do professor aqui -->
+
+        <a href="#" onclick="showTurmaContainer()">Listar Turmas</a>
+        <a href="#" onclick="showAtividadeContainer()">Listar Atividades</a>
+        <a href="#" onclick="showTurmasVinculadas()">Minhas Turmas</a>
+        <a href="#" onclick="logout()">Sair do Sistema</a>
+    </div>
+
+    <div class="container" id="turmaContainer" style="display: none;">
+        <h2>Listagem de Turmas</h2>
+        <!-- Conteúdo da listagem de turmas aqui -->
+
+        <a href="#" onclick="showMainContainer()">Voltar</a>
+    </div>
+
+    <div class="container" id="atividadeContainer" style="display: none;">
+        <h2>Listagem de Atividades</h2>
+        <!-- Conteúdo da listagem de atividades aqui -->
+        <table>
+            <tr>
+                <th>Atividades</th>
+                <th>Data e nome da atividade</th>
+            </tr>
+            <tr>
+                <td>Atividade 3 ano B</td>
+                <td>ATVD avaliativa dia 24/11
+            </tr>
+            <tr>
+                <td>Atividade 3 ano B</td>
+                <td>ATVD banco de dados dia 27/11</td>
+            </tr>
+            <tr>
+                <td>Atividade 3 ano A</td>
+                <td>ATVD avaliativa dia 28/11</td>
+            </tr>
+        </table>
+
+        <a href="#" onclick="showMainContainer()">Voltar</a>
+    </div>
+
+    <div class="container" id="turmasVinculadasContainer" style="display: none;">
+        <h2>Minhas Turmas</h2>
+        <!-- Conteúdo da listagem de turmas vinculadas aqui -->
+
+        <a href="#" onclick="showMainContainer()">Voltar</a>
+    </div>
+
+    <script>
+        function login() {
+            // Simulação de autenticação (não segura)
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('mainContainer').style.display = 'block';
+        }
+
+        function showTurmaContainer() {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('turmaContainer').style.display = 'block';
+        }
+
+        function showAtividadeContainer() {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('atividadeContainer').style.display = 'block';
+        }
+
+        function showTurmasVinculadas() {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('turmasVinculadasContainer').style.display = 'block';
+        }
+
+        function showMainContainer() {
+            document.getElementById('mainContainer').style.display = 'block';
+            document.getElementById('turmaContainer').style.display = 'none';
+            document.getElementById('atividadeContainer').style.display = 'none';
+            document.getElementById('turmasVinculadasContainer').style.display = 'none';
+        }
+
+        function logout() {
+            document.getElementById('loginContainer').style.display = 'block';
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('turmaContainer').style.display = 'none';
+            document.getElementById('atividadeContainer').style.display = 'none';
+            document.getElementById('turmasVinculadasContainer').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
